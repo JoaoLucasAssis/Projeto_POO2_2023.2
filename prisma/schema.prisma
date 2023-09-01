@@ -2,30 +2,30 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 model Mae {
-  id    Int     @id @default(autoincrement())
-  name  String?
-  telefone String?
-  endereco String?
+  RG       Int     @id @default(autoincrement())
+  name     String
   data     String?
+  endereco String?
+  telefone String?
+  bebes Bebe[]
 }
 
 model Medico {
-  crm            Int     @id @default(autoincrement())
-  nome           String?
+  crm           Int     @id @default(autoincrement())
+  nome          String?
   endereco      String?
   especialidade String?
+  bebes Bebe[]
 }
 
 model Bebe {
-  id      Int     @id @default(autoincrement())
+  certidao_nascimento      Int     @id @default(autoincrement())
   name    String?
   data    String?
   altura  Float?
   peso    Float?
-  medico  Medico @relation(fields: [medicoCrm], references: [crm])
-  medicoCrm  Int
-  mae     Mae    @relation(fields: [maeId], references: [id])
-  maeId   Int    
+  medico  Medico @relation(fields: [certidao_nascimento], references: [crm])
+  mae     Mae    @relation(fields: [certidao_nascimento], references: [RG])
 }
 
 generator client {

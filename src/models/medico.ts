@@ -1,13 +1,13 @@
 export default class Medico {
+    private crm: number;
     private nome: string;
-    private crm: string;
-    private endereco: string;
+    private telefone: string;
     private especialidade: string;
 
-    constructor (nome: string, crm: string, endereco: string, especialidade: string){
-        this.nome = nome;
+    constructor (nome: string, crm: number, telefone: string, especialidade: string){
         this.crm = crm;
-        this.endereco = endereco;
+        this.nome = nome;
+        this.telefone = telefone;
         this.especialidade = especialidade;
     }
   }
