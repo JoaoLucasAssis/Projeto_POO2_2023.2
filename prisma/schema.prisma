@@ -1,28 +1,28 @@
 model Mae {
-  RG       Int     @id @default(autoincrement())
-  nome     String
-  data_nascimento     String?
-  endereco String?
-  telefone String?
-  bebes Bebe[]
+  cpfMae                   Int     @id @default(autoincrement())
+  nome                 String
+  data_nascimento      String?
+  endereco             String?
+  telefone             String?
+  bebes                Bebe[]
 }
 
 model Medico {
-  crm           Int     @id @default(autoincrement())
-  nome          String?
-  endereco      String?
-  especialidade String?
-  bebes Bebe[]
+  crm              Int     @id @default(autoincrement())
+  nome             String
+  endereco         String?
+  especialidade    String
+  bebes            Bebe[]
 }
 
 model Bebe {
-  certidao_nascimento      Int     @id @default(autoincrement())
-  nome    String?
-  data_nascimento    String?
-  altura  Float?
-  peso    Float?
-  medico  Medico @relation(fields: [certidao_nascimento], references: [crm])
-  mae     Mae    @relation(fields: [certidao_nascimento], references: [RG])
+  cpfBebe      Int     @id @default(autoincrement())
+  nome                     String
+  data_nascimento          String
+  altura                   Float?
+  peso                     Float?
+  medico                   Medico @relation(fields: [cpfBebe], references: [crm])
+  mae                      Mae    @relation(fields: [cpfBebe], references: [cpfMae])
 }
 
 generator client {
