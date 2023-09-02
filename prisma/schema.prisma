@@ -1,5 +1,5 @@
 model Mae {
-  cpfMae                   Int     @id @default(autoincrement())
+  cpfMae               String     @id
   nome                 String
   data_nascimento      String?
   endereco             String?
@@ -8,15 +8,14 @@ model Mae {
 }
 
 model Medico {
-  crm              Int     @id @default(autoincrement())
+  crm              String     @id
   nome             String
-  endereco         String?
-  especialidade    String
+  especialidade    String?
   bebes            Bebe[]
 }
 
 model Bebe {
-  cpfBebe      Int     @id @default(autoincrement())
+  cpfBebe      String     @id
   nome                     String
   data_nascimento          String
   altura                   Float?
