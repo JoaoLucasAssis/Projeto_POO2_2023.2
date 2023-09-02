@@ -1,7 +1,7 @@
 model Mae {
   RG       Int     @id @default(autoincrement())
-  name     String
-  data     String?
+  nome     String
+  data_nascimento     String?
   endereco String?
   telefone String?
   bebes Bebe[]
@@ -17,8 +17,8 @@ model Medico {
 
 model Bebe {
   certidao_nascimento      Int     @id @default(autoincrement())
-  name    String?
-  data    String?
+  nome    String?
+  data_nascimento    String?
   altura  Float?
   peso    Float?
   medico  Medico @relation(fields: [certidao_nascimento], references: [crm])
