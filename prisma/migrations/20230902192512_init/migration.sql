@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Mae" (
-    "RG" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "RG" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "data" TEXT,
     "endereco" TEXT,
