@@ -16,8 +16,17 @@ class BebeService {
 
     async insert(bebe: Bebe) {
         try {
-            const newBebe = await prisma.bebe.create({
-                data: {
+            await prisma.bebe.create({
+
+                /* 
+                Essa parte está dando um erro, onde o Prisma espera que o campo mae seja 
+                do tipo undefined ou um objeto que corresponda ao tipo BebeCreateInput, 
+                mas você está passando um objeto que não está de acordo com essa expectativa
+                */
+
+                data: {} //Quando o problema for resolvido essa linha pode ser removida
+
+                /*data: {
                     certidao_nascimento: bebe.cpf,
                     name: bebe.nome,
                     data: bebe.data,
@@ -40,7 +49,7 @@ class BebeService {
                             especialidade: bebe.medico.especialidade,
                         }
                     },
-                }
+                }*/
             });
         } catch (error) {
             console.log(error);
@@ -58,7 +67,7 @@ class BebeService {
 
     async update(bebe: Bebe) {
         try {
-            const updateBebe = await prisma.bebe.update({
+            await prisma.bebe.update({
                 where: { certidao_nascimento: bebe.cpf },
                 data: {
                     name: bebe.nome,
@@ -74,7 +83,7 @@ class BebeService {
 
     async delete(bebe: Bebe) {
         try {
-            const deleteBebe = await prisma.bebe.delete({
+            await prisma.bebe.delete({
                 where: { certidao_nascimento: bebe.cpf },
             });
         } catch (error) {
