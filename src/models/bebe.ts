@@ -1,5 +1,5 @@
-import Mae from "./Mae";
-import Medico from "./Medico";
+import Mae from "./mae";
+import Medico from "./medico";
 
 export default class Bebe {
   public cpf: number;
