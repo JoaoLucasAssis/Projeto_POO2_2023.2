@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 
 // Importa as classes dos modelos
-import Medico from "./models/Medico"
-import Mae from "./models/Mae"
+import Medico from "./models/medico"
+import Mae from "./models/mae"
 import Bebe from "./models/Bebe"
 
 // Importa as classes de serviço de cada modelo
