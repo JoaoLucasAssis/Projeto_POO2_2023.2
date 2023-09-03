@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import Medico from "../models/Medico";
+import Medico from "../models/medico";
 
 const prisma = new PrismaClient();
 
