@@ -16,7 +16,7 @@ class MedicoService {
 
     async insert(medico: Medico) {
         try {
-            const newMedico = await prisma.medico.create({
+            await prisma.medico.create({
                 data: {
                     crm: medico.crm,
                     nome: medico.nome,
@@ -40,7 +40,7 @@ class MedicoService {
 
     async update(medico: Medico) {
         try {
-            const updateMedico = await prisma.medico.update({
+            await prisma.medico.update({
                 where: { crm: medico.crm },
                 data: {
                     nome: medico.nome,
@@ -55,7 +55,7 @@ class MedicoService {
 
     async delete(medico: Medico) {
         try {
-            const deleteMedico = await prisma.medico.delete({
+            await prisma.medico.delete({
                 where: { crm: medico.crm },
             });
         } catch (error) {

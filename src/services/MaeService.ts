@@ -16,7 +16,7 @@ class MaeService {
 
     async insert(mae: Mae) {
         try {
-            const newMae = await prisma.mae.create({
+            await prisma.mae.create({
                 data: {
                     RG: mae.cpf,
                     name: mae.nome,
@@ -41,7 +41,7 @@ class MaeService {
 
     async update(mae: Mae) {
         try {
-            const updateMae = await prisma.mae.update({
+            await prisma.mae.update({
                 where: { RG: mae.cpf },
                 data: {
                     name: mae.nome,
@@ -57,7 +57,7 @@ class MaeService {
 
     async delete(mae: Mae) {
         try {
-            const deleteMae = await prisma.mae.delete({
+            await prisma.mae.delete({
                 where: { RG: mae.cpf },
             });
         } catch (error) {
