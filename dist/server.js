@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 // Importa as classes dos modelos
-const Medico_1 = __importDefault(require("./models/Medico"));
-const Mae_1 = __importDefault(require("./models/Mae"));
-const Bebe_1 = __importDefault(require("./models/Bebe"));
+const medico_1 = __importDefault(require("./models/medico"));
+const mae_1 = __importDefault(require("./models/mae"));
+const bebe_1 = __importDefault(require("./models/bebe"));
 // Importa as classes de serviço de cada modelo
 const MedicoService_1 = __importDefault(require("./services/MedicoService"));
 const MaeService_1 = __importDefault(require("./services/MaeService"));
@@ -28,9 +28,9 @@ function main() {
         const medicoService = MedicoService_1.default.getInstance();
         const maeService = MaeService_1.default.getInstance();
         const bebeService = BebeService_1.default.getInstance();
-        const medico = new Medico_1.default('Bruno', 1, '123456789', 'Rua A', 'Obstetra');
-        const mae = new Mae_1.default(1, 'Vitoria', '1969-01-01', 'Rua B', '123456789');
-        const bebe = new Bebe_1.default(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
+        const medico = new medico_1.default('Bruno', 1, '123456789', 'Obstetra');
+        const mae = new mae_1.default(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
+        const bebe = new bebe_1.default(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
         try {
             /*
             Insere os objetos nas suas respectivas

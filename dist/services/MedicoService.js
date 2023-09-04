@@ -25,7 +25,7 @@ class MedicoService {
                     data: {
                         crm: medico.crm,
                         nome: medico.nome,
-                        endereco: medico.endereco,
+                        telefone: medico.telefone,
                         especialidade: medico.especialidade,
                     }
                 });
@@ -53,7 +53,7 @@ class MedicoService {
                     where: { crm: medico.crm },
                     data: {
                         nome: medico.nome,
-                        endereco: medico.endereco,
+                        telefone: medico.telefone,
                         especialidade: medico.especialidade,
                     }
                 });

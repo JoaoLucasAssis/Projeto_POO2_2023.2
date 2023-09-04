@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Medico {
-    constructor(nome, crm, telefone, endereco, especialidade) {
+    constructor(nome, crm, telefone, especialidade) {
         this.crm = crm;
         this.nome = nome;
         this.telefone = telefone;
-        this.endereco = endereco;
         this.especialidade = especialidade;
     }
 }

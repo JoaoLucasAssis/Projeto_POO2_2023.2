@@ -23,7 +23,7 @@ class MaeService {
             try {
                 yield prisma.mae.create({
                     data: {
-                        RG: mae.cpf,
+                        RG: mae.RG,
                         name: mae.nome,
                         data: mae.data_nascimento,
                         endereco: mae.endereco,
@@ -51,7 +51,7 @@ class MaeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.mae.update({
-                    where: { RG: mae.cpf },
+                    where: { RG: mae.RG },
                     data: {
                         name: mae.nome,
                         data: mae.data_nascimento,
@@ -69,7 +69,7 @@ class MaeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.mae.delete({
-                    where: { RG: mae.cpf },
+                    where: { RG: mae.RG },
                 });
             }
             catch (error) {

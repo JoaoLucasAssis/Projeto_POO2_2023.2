@@ -27,31 +27,30 @@ class BebeService {
                     do tipo undefined ou um objeto que corresponda ao tipo BebeCreateInput,
                     mas você está passando um objeto que não está de acordo com essa expectativa
                     */
-                    data: {} //Quando o problema for resolvido essa linha pode ser removida
-                    /*data: {
-                        certidao_nascimento: bebe.cpf,
+                    data: {
+                        certidao_nascimento: bebe.certidao_nascimento,
                         name: bebe.nome,
                         data: bebe.data,
                         altura: bebe.altura,
                         peso: bebe.peso,
-                        mae: {
-                            connect: {
-                                RG: bebe.mae.cpf,
-                                name: bebe.mae.nome,
-                                data: bebe.mae.data_nascimento,
-                                endereco: bebe.mae.endereco,
-                                telefone: bebe.mae.telefone,
-                            }
-                        },
-                        medico: {
-                            connect: {
-                                crm: bebe.medico.crm,
-                                nome: bebe.medico.nome,
-                                endereco: bebe.medico.endereco,
-                                especialidade: bebe.medico.especialidade,
-                            }
-                        },
-                    }*/
+                        // mae: {
+                        //     connect: {
+                        //         RG: bebe.mae.RG,
+                        //         name: bebe.mae.nome,
+                        //         data: bebe.mae.data_nascimento,
+                        //         endereco: bebe.mae.endereco,
+                        //         telefone: bebe.mae.telefone,
+                        //     }
+                        // },
+                        // medico: {
+                        //     connect: {
+                        //         crm: bebe.medico.crm,
+                        //         nome: bebe.medico.nome,
+                        //         telefone: bebe.medico.telefone,
+                        //         especialidade: bebe.medico.especialidade,
+                        //     }
+                        // },
+                    }
                 });
             }
             catch (error) {
@@ -74,7 +73,7 @@ class BebeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.bebe.update({
-                    where: { certidao_nascimento: bebe.cpf },
+                    where: { certidao_nascimento: bebe.certidao_nascimento },
                     data: {
                         name: bebe.nome,
                         data: bebe.data,
@@ -92,7 +91,7 @@ class BebeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.bebe.delete({
-                    where: { certidao_nascimento: bebe.cpf },
+                    where: { certidao_nascimento: bebe.certidao_nascimento },
                 });
             }
             catch (error) {

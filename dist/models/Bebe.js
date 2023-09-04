@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Bebe {
-    constructor(cpf, nome, data, peso, altura, medico, mae) {
-        this.cpf = cpf;
+    constructor(certidao_nascimento, nome, data, peso, altura, medico, mae) {
+        this.certidao_nascimento = certidao_nascimento;
         this.nome = nome;
         this.data = data;
         this.peso = peso;

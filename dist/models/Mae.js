@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Mae {
-    constructor(cpf, nome, data_nascimento, endereco, telefone) {
-        this.cpf = cpf;
+    constructor(RG, nome, data_nascimento, endereco, telefone) {
+        this.RG = RG;
         this.nome = nome;
         this.data_nascimento = data_nascimento;
         this.endereco = endereco;
