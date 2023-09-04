@@ -1,29 +1,32 @@
-model Mae {
-  RG       Int     @id @default(autoincrement())
-  name     String
-  data     String?
-  endereco String?
-  telefone String?
-  bebes Bebe[]
+model Medico {
+  crm                 Int     @id
+  nome                String? @unique
+  telefone            String?
+  especialidade       String?
+  bebes               Bebe[]
 }
 
-model Medico {
-  crm           Int     @id @default(autoincrement())
-  nome          String?
-  telefone      String?
-  especialidade String?
-  bebes Bebe[]
+model Mae {
+  cpf                 Int     @id
+  nome                String   @unique
+  data_nascimento     String?
+  endereco            String?
+  telefone            String?
+  bebes               Bebe[]
 }
 
 model Bebe {
-  certidao_nascimento      Int     @id @default(autoincrement())
-  name    String?
-  data    String?
-  altura  Float?
-  peso    Float?
-  medico  Medico @relation(fields: [certidao_nascimento], references: [crm])
-  mae     Mae    @relation(fields: [certidao_nascimento], references: [RG])
+  certidao_nascimento      Int      @id
+  nome                     String
+  data_nascimento          String?
+  altura                   Float?
+  peso                     Float?
+  medico                   Medico   @relation(fields: [medicoCrm], references: [crm])
+  mae                      Mae      @relation(fields: [maeCpf], references: [cpf])
+  medicoCrm                Int      @unique
+  maeCpf                   Int      @unique
 }
+
 generator client {
   provider = "prisma-client-js"
 }
