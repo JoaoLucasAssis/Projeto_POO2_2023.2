@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 // Importa as classes dos modelos
 import Medico from "./models/medico"
 import Mae from "./models/mae"
-import Bebe from "./models/Bebe"
+import Bebe from "./models/bebe"
 
 // Importa as classes de serviço de cada modelo
 import MedicoService from './services/MedicoService'
@@ -19,8 +19,8 @@ async function main() {
     const maeService = MaeService.getInstance();
     const bebeService = BebeService.getInstance();
 
-    const medico = new Medico('Bruno', 1, '123456789', 'Rua A', 'Obstetra');
-    const mae = new Mae(1, 'Vitoria', '1969-01-01', 'Rua B', '123456789');
+    const medico = new Medico('Bruno', 1, '123456789', 'Obstetra');
+    const mae = new Mae(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
     const bebe = new Bebe(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
 
     try {

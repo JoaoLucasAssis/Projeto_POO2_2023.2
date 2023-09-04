@@ -18,7 +18,7 @@ class MaeService {
         try {
             await prisma.mae.create({
                 data: {
-                    RG: mae.cpf,
+                    RG: mae.RG,
                     name: mae.nome,
                     data: mae.data_nascimento,
                     endereco: mae.endereco,
@@ -42,7 +42,7 @@ class MaeService {
     async update(mae: Mae) {
         try {
             await prisma.mae.update({
-                where: { RG: mae.cpf },
+                where: { RG: mae.RG },
                 data: {
                     name: mae.nome,
                     data: mae.data_nascimento,
@@ -58,7 +58,7 @@ class MaeService {
     async delete(mae: Mae) {
         try {
             await prisma.mae.delete({
-                where: { RG: mae.cpf },
+                where: { RG: mae.RG },
             });
         } catch (error) {
             console.log(error);
