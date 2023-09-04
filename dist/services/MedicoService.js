@@ -23,10 +23,10 @@ class MedicoService {
             try {
                 yield prisma.medico.create({
                     data: {
-                        crm: medico.crm,
-                        nome: medico.nome,
-                        telefone: medico.telefone,
-                        especialidade: medico.especialidade,
+                        crm: medico.getCrm(),
+                        nome: medico.getNome(),
+                        telefone: medico.getTelefone(),
+                        especialidade: medico.getEspecialidade(),
                     }
                 });
             }
@@ -50,11 +50,11 @@ class MedicoService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.medico.update({
-                    where: { crm: medico.crm },
+                    where: { crm: medico.getCrm() },
                     data: {
-                        nome: medico.nome,
-                        telefone: medico.telefone,
-                        especialidade: medico.especialidade,
+                        nome: medico.getNome(),
+                        telefone: medico.getTelefone(),
+                        especialidade: medico.getEspecialidade(),
                     }
                 });
             }
@@ -67,7 +67,7 @@ class MedicoService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.medico.delete({
-                    where: { crm: medico.crm },
+                    where: { crm: medico.getCrm() },
                 });
             }
             catch (error) {

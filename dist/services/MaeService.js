@@ -23,11 +23,11 @@ class MaeService {
             try {
                 yield prisma.mae.create({
                     data: {
-                        RG: mae.RG,
-                        name: mae.nome,
-                        data: mae.data_nascimento,
-                        endereco: mae.endereco,
-                        telefone: mae.telefone,
+                        cpf: mae.getCpf(),
+                        nome: mae.getNome(),
+                        data_nascimento: mae.getData_nascimento(),
+                        endereco: mae.getEndereco(),
+                        telefone: mae.getTelefone(),
                     }
                 });
             }
@@ -51,12 +51,12 @@ class MaeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.mae.update({
-                    where: { RG: mae.RG },
+                    where: { cpf: mae.getCpf() },
                     data: {
-                        name: mae.nome,
-                        data: mae.data_nascimento,
-                        endereco: mae.endereco,
-                        telefone: mae.telefone,
+                        nome: mae.getNome(),
+                        data_nascimento: mae.getData_nascimento(),
+                        endereco: mae.getEndereco(),
+                        telefone: mae.getTelefone(),
                     }
                 });
             }
@@ -69,7 +69,7 @@ class MaeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield prisma.mae.delete({
-                    where: { RG: mae.RG },
+                    where: { cpf: mae.getCpf() },
                 });
             }
             catch (error) {

@@ -28,7 +28,7 @@ function main() {
         const medicoService = MedicoService_1.default.getInstance();
         const maeService = MaeService_1.default.getInstance();
         const bebeService = BebeService_1.default.getInstance();
-        const medico = new medico_1.default('Bruno', 1, '123456789', 'Obstetra');
+        const medico = new medico_1.default(1, 'Bruno', '123456789', 'Obstetra');
         const mae = new mae_1.default(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
         const bebe = new bebe_1.default(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
         try {
