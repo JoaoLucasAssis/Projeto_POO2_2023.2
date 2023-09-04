@@ -10,7 +10,7 @@ model Mae {
 model Medico {
   crm           Int     @id @default(autoincrement())
   nome          String?
-  endereco      String?
+  telefone      String?
   especialidade String?
   bebes Bebe[]
 }
