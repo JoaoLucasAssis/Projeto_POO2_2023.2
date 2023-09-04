@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+
 import Medico from "../models/medico";
 
 const prisma = new PrismaClient();
@@ -18,10 +19,10 @@ class MedicoService {
         try {
             await prisma.medico.create({
                 data: {
-                    crm: medico.crm,
-                    nome: medico.nome,
-                    telefone: medico.telefone,
-                    especialidade: medico.especialidade,
+                    crm: medico.getCrm(),
+                    nome: medico.getNome(),
+                    telefone: medico.getTelefone(),
+                    especialidade: medico.getEspecialidade(),
                 }
             });
         } catch (error) {
@@ -41,11 +42,11 @@ class MedicoService {
     async update(medico: Medico) {
         try {
             await prisma.medico.update({
-                where: { crm: medico.crm },
+                where: { crm: medico.getCrm() },
                 data: {
-                    nome: medico.nome,
-                    telefone: medico.telefone,
-                    especialidade: medico.especialidade,
+                    nome: medico.getNome(),
+                    telefone: medico.getTelefone(),
+                    especialidade: medico.getEspecialidade(),
                 }
             });
         } catch (error) {
@@ -56,7 +57,7 @@ class MedicoService {
     async delete(medico: Medico) {
         try {
             await prisma.medico.delete({
-                where: { crm: medico.crm },
+                where: { crm: medico.getCrm() },
             });
         } catch (error) {
             console.log(error);

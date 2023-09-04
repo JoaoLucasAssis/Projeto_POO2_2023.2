@@ -19,7 +19,7 @@ async function main() {
     const maeService = MaeService.getInstance();
     const bebeService = BebeService.getInstance();
 
-    const medico = new Medico('Bruno', 1, '123456789', 'Obstetra');
+    const medico = new Medico(1, 'Bruno', '123456789', 'Obstetra');
     const mae = new Mae(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
     const bebe = new Bebe(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
 

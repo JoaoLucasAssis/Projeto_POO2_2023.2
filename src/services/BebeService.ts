@@ -17,36 +17,14 @@ class BebeService {
     async insert(bebe: Bebe) {
         try {
             await prisma.bebe.create({
-
-                /* 
-                Essa parte está dando um erro, onde o Prisma espera que o campo mae seja 
-                do tipo undefined ou um objeto que corresponda ao tipo BebeCreateInput, 
-                mas você está passando um objeto que não está de acordo com essa expectativa
-                */
-
                 data: {
-                    certidao_nascimento: bebe.certidao_nascimento,
-                    name: bebe.nome,
-                    data: bebe.data,
-                    altura: bebe.altura,
-                    peso: bebe.peso,
-                    // mae: {
-                    //     connect: {
-                    //         RG: bebe.mae.RG,
-                    //         name: bebe.mae.nome,
-                    //         data: bebe.mae.data_nascimento,
-                    //         endereco: bebe.mae.endereco,
-                    //         telefone: bebe.mae.telefone,
-                    //     }
-                    // },
-                    // medico: {
-                    //     connect: {
-                    //         crm: bebe.medico.crm,
-                    //         nome: bebe.medico.nome,
-                    //         telefone: bebe.medico.telefone,
-                    //         especialidade: bebe.medico.especialidade,
-                    //     }
-                    // },
+                    certidao_nascimento: bebe.getCertidao_nascimento(),
+                    nome: bebe.getNome(),
+                    data_nascimento: bebe.getData_nascimento(),
+                    altura: bebe.getAltura(),
+                    peso: bebe.getPeso(),
+                    maeCpf: bebe.getMae().getCpf(),
+                    medicoCrm: bebe.getMedico().getCrm(),
                 }
             });
         } catch (error) {
@@ -66,12 +44,12 @@ class BebeService {
     async update(bebe: Bebe) {
         try {
             await prisma.bebe.update({
-                where: { certidao_nascimento: bebe.certidao_nascimento },
+                where: { certidao_nascimento: bebe.getCertidao_nascimento() },
                 data: {
-                    name: bebe.nome,
-                    data: bebe.data,
-                    altura: bebe.altura,
-                    peso: bebe.peso,
+                    nome: bebe.getNome(),
+                    data_nascimento: bebe.getData_nascimento(),
+                    altura: bebe.getAltura(),
+                    peso: bebe.getPeso(),
                 }
             });
         } catch (error) {
@@ -82,7 +60,7 @@ class BebeService {
     async delete(bebe: Bebe) {
         try {
             await prisma.bebe.delete({
-                where: { certidao_nascimento: bebe.certidao_nascimento },
+                where: { certidao_nascimento: bebe.getCertidao_nascimento() },
             });
         } catch (error) {
             console.log(error);

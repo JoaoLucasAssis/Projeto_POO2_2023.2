@@ -18,11 +18,11 @@ class MaeService {
         try {
             await prisma.mae.create({
                 data: {
-                    RG: mae.RG,
-                    name: mae.nome,
-                    data: mae.data_nascimento,
-                    endereco: mae.endereco,
-                    telefone: mae.telefone,
+                    cpf: mae.getCpf(),
+                    nome: mae.getNome(),
+                    data_nascimento: mae.getData_nascimento(),
+                    endereco: mae.getEndereco(),
+                    telefone: mae.getTelefone(),
                 }
             });
         } catch (error) {
@@ -42,12 +42,12 @@ class MaeService {
     async update(mae: Mae) {
         try {
             await prisma.mae.update({
-                where: { RG: mae.RG },
+                where: { cpf: mae.getCpf() },
                 data: {
-                    name: mae.nome,
-                    data: mae.data_nascimento,
-                    endereco: mae.endereco,
-                    telefone: mae.telefone,
+                    nome: mae.getNome(),
+                    data_nascimento: mae.getData_nascimento(),
+                    endereco: mae.getEndereco(),
+                    telefone: mae.getTelefone(),
                 }
             });
         } catch (error) {
@@ -58,7 +58,7 @@ class MaeService {
     async delete(mae: Mae) {
         try {
             await prisma.mae.delete({
-                where: { RG: mae.RG },
+                where: { cpf: mae.getCpf() },
             });
         } catch (error) {
             console.log(error);
