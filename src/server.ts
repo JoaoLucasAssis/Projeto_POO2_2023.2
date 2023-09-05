@@ -19,9 +19,9 @@ async function main() {
     const maeService = MaeService.getInstance();
     const bebeService = BebeService.getInstance();
 
-    const medico = new Medico(1, 'Bruno', '123456789', 'Obstetra');
-    const mae = new Mae(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
-    const bebe = new Bebe(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
+    const medico = new Medico(10, 'Joao', '123456789', 'Obstetra');
+    const mae = new Mae(20, 'Paula', '1969-01-01', 'Rua Projetada', '123456789');
+    const bebe = new Bebe(30, 'Matheus', '2023-08-28', 3.56, 55, medico, mae);
 
     try {
 
@@ -41,6 +41,11 @@ async function main() {
         await medicoService.retrieveAll();
         await maeService.retrieveAll();
         await bebeService.retrieveAll();
+
+        await bebeService.delete(bebe);
+        await medicoService.delete(medico);
+        await maeService.delete(mae);
+
     } catch (error) {
         console.error(error)
     } finally {

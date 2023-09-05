@@ -60,7 +60,11 @@ class BebeService {
     async delete(bebe: Bebe) {
         try {
             await prisma.bebe.delete({
-                where: { certidao_nascimento: bebe.getCertidao_nascimento() },
+                where: {
+                    certidao_nascimento: bebe.getCertidao_nascimento(),
+                    maeCpf: bebe.getMae().getCpf(),
+                    medicoCrm: bebe.getMedico().getCrm(),
+                },
             });
         } catch (error) {
             console.log(error);

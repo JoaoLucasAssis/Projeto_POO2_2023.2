@@ -28,9 +28,9 @@ function main() {
         const medicoService = MedicoService_1.default.getInstance();
         const maeService = MaeService_1.default.getInstance();
         const bebeService = BebeService_1.default.getInstance();
-        const medico = new medico_1.default(1, 'Bruno', '123456789', 'Obstetra');
-        const mae = new mae_1.default(1, 'Vitoria', '1969-01-01', 'Rua Projetada', '123456789');
-        const bebe = new bebe_1.default(1, 'Joao', '2023-08-28', 3.56, 55, medico, mae);
+        const medico = new medico_1.default(10, 'Joao', '123456789', 'Obstetra');
+        const mae = new mae_1.default(20, 'Paula', '1969-01-01', 'Rua Projetada', '123456789');
+        const bebe = new bebe_1.default(30, 'Matheus', '2023-08-28', 3.56, 55, medico, mae);
         try {
             /*
             Insere os objetos nas suas respectivas
@@ -47,6 +47,9 @@ function main() {
             yield medicoService.retrieveAll();
             yield maeService.retrieveAll();
             yield bebeService.retrieveAll();
+            yield bebeService.delete(bebe);
+            yield medicoService.delete(medico);
+            yield maeService.delete(mae);
         }
         catch (error) {
             console.error(error);
